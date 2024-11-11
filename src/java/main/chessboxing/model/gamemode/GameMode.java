@@ -1,11 +1,22 @@
 package java.main.chessboxing.model.gamemode;
 
-public abstract class GameMode {
-    protected int playerTimeRemaining;
-    protected int roundDuration;
-    protected int roundTimeRemaining;
-    protected boolean isCurrentMode;
+public class GameMode {
+    private boolean isChessMode;
 
-    public abstract void startMode();
-    public abstract void endMode();
+    public GameMode() {
+        this.isChessMode = true;  // Start with chess mode
+    }
+
+    // Switches between chess and boxing mode
+    public void switchMode() {
+        this.isChessMode = !this.isChessMode;
+    }
+
+    public boolean isChessMode() {
+        return isChessMode;
+    }
+
+    public boolean isBoxingMode() {
+        return !isChessMode;
+    }
 }
